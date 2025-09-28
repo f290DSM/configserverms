@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fatec
+    driver-class-name: org.postgresql.Driver
+    username: aluno
+    password: segredo
+  jpa:
+    hibernate:
+      ddl-auto: update   # Atualiza o schema sem apagar dados
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true        # Exibe queries no console
+    open-in-view: false   # Boa prática para evitar LazyInitializationException
+  sql:
+    init:
+      mode: always        # Executa scripts schema.sql/data.sql se existirem
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
